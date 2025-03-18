@@ -1,0 +1,8 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "noEmit": false, // Allow emitting JavaScript files
+      "outDir": "./dist/scripts" // Output directory for compiled scripts
+    },
+    "include": ["src/data/migrate.ts"] // Include only the script you want to compile
+  }

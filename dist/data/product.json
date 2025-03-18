@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "img": "/brown-leather-slip-men-s-shoes-fashion.jpg",
+        "title": "Elegant Walkers",
+        "price": 120.50,
+        "category": "Casual",
+        "color": "Black",
+        "size": 9
+    },
+    {
+        "id": 2,
+        "img": "/src/assets/childhood-cute-pair-child-baby.jpg",
+        "title": "Sporty Sprint",
+        "price": 95.75,
+        "category": "Sports",
+        "color": "Blue",
+        "size": 10
+    },
+    {
+        "id": 3,
+        "img": "/src/assets/domino-studio-164_6wVEHfI-unsplash.jpg",
+        "title": "Urban Chic",
+        "price": 150.00,
+        "category": "Fashion",
+        "color": "White",
+        "size": 8
+    },
+    {
+        "id": 4,
+        "img": "/",
+        "title": "Trail Blazers",
+        "price": 110.25,
+        "category": "Outdoor",
+        "color": "Brown",
+        "size": 11
+    },
+    {
+        "id": 5,
+        "img": "/",
+        "title": "Classic Comfort",
+        "price": 85.99,
+        "category": "Casual",
+        "color": "Gray",
+        "size": 7
+    }
+]

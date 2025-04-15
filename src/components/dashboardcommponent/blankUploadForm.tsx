@@ -22,12 +22,12 @@ type Data = {
     otherImages: string[]
 }
 
-async function upload({ formdata }: { formdata: Data }) {
+async function upload( formdata : FormData ) {
     try {
         // setUploading(true);
         const response = await fetch("/api/upload", {
             method: "POST",
-            body: data,
+            body: formdata,
         });
         if (response.ok) {
             const result = await response.json();
@@ -89,12 +89,12 @@ const blankUploadForm = ({ bg }: {  bg: string | null }) => {
             const formData = new FormData();
             formData.append("name", name);
             formData.append("catagory", catagory);
-            formData.append("price", price);
-            formData.append("quantity", quantity);
-            formData.append("Instock", Instock.toString());
+            formData.append("price", price.toString());
+            formData.append("quantity", quantity.toString());
+            formData.append("Instock", `${Instock}`);
             formData.append("description", description);
             formData.append("new", isNew.toString());
-            formData.append("Popular", IsPopular.toString());
+            formData.append("Popular", `${IsPopular}`);
             colors.forEach((c) => formData.append("colors", c as string));
             sizes.forEach((size) => formData.append("sizes", size));
             if (frontImage) formData.append("frontImage", frontImage);
@@ -104,13 +104,14 @@ const blankUploadForm = ({ bg }: {  bg: string | null }) => {
         }
         if (!frontImage || !name || !catagory || !price || !colors || !sizes) {
             console.log("incomplate frontend data")
+            console.log("frontImage",frontImage,"name",name,"catagory",catagory,"price",price,"colors",colors,"sizes",sizes)
             return false;
         }
         const formData = new FormData();
         formData.append("name", name);
         formData.append("catagory", catagory);
-        formData.append("price", price);
-        formData.append("quantity", quantity);
+        formData.append("price", price.toString());
+        formData.append("quantity", quantity.toString());
         formData.append("Instock", Instock.toString());
         formData.append("description", description);
         formData.append("new", isNew.toString());
@@ -124,7 +125,13 @@ const blankUploadForm = ({ bg }: {  bg: string | null }) => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const formdata = validate();
-        if (!formdata) return;
+        if (!formdata){
+            console.log("formdata is not valid")
+            return;
+        } else{
+            console.log(formdata);
+        }
+            
         await upload(formdata);
     };
 

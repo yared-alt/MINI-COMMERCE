@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { v2 as cloudinary } from 'cloudinary';
 import Product from "$/models/productModel";
 import { connect } from "$/dbConfig/connector";
-import util from 'node:util';
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -20,8 +19,8 @@ export async function POST(request: NextRequest) {
 
   try {
     const formdata = await request.formData();
-    const FrontImagefile = formdata.get("frontImage") as File | null;
-    const otherImages = formdata.getAll("otherImages") as File[] | null;
+    const FrontImagefile = formdata.get("frontImage") as File;
+    const otherImages = formdata.getAll("otherImages") as File[];
     const name = formdata.get("name") as String;
     const catagory = formdata.get("catagory") as String;
     const price = formdata.get("price");
@@ -33,7 +32,7 @@ export async function POST(request: NextRequest) {
     const quantity = formdata.get("quantity");
     const Instock = formdata.get("Instock");
     var FrontimagePublic_id;
-    var OtherimagesPublic_id = [];
+    var OtherimagesPublic_id:string[] = [];
 
     // console.log(name,price,description,isNew,IsPopular,colors,sizes,FrontImagefile,otherImages,catagory,Instock)
 
@@ -43,7 +42,7 @@ export async function POST(request: NextRequest) {
     }
     try {
       const byte = await FrontImagefile.arrayBuffer();
-      const buffer = Buffer.from(byte); // or Uint8Array in the browser
+      const buffer = Buffer.from(byte);
 
       const frontresult = await new Promise<CloudinaryResult>(
         (resolve, rejects) => {
@@ -98,7 +97,7 @@ export async function POST(request: NextRequest) {
     // replace the slash in public_id with A so mini-commerce/ will be mini-commerceA
     const replaceSlash = (x: any) => {
       if (Array.isArray(x)) {
-        var replacedString_id = [];
+        var replacedString_id:string[] = [];
         x.forEach((el) => {
           replacedString_id.push(el.replace("mini-commerce/", "mini-commerceA"));
         })

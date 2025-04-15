@@ -1,8 +1,7 @@
 import Link from 'next/link'
-import bgimg from "/public/pexels-adrian-dorobantu-989175-2300334.jpg"
 import React from 'react'
 
-function hero({ maxw }) {
+function hero({ maxw }:{maxw:string}) {
     return (
         <div
             style={{
@@ -31,7 +30,6 @@ function hero({ maxw }) {
                             <Link href="/product">
                                 <button className="text-center text-sm md:text-lg px-9 md:px-11 py-2 md:py-4 bg-transparent border-2 border-opacity-45 border-gray-200 hover:bg-gray-200 hover:text-black transition-all duration-1000">view collection</button>
                             </Link>
-                            {/* trnsition in tailwind animation and fonts */}
                         </div>
                     </div>
                 </div>

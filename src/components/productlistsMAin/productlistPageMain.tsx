@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidbar from './sidbar';
-import { ArrowDownWideNarrow, Filter, Search, ChevronDown } from 'lucide-react'
+import { ArrowDownWideNarrow, Filter, Search } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -19,18 +19,17 @@ function productlistPageMain() {
                     </div>
                 </div>
                 <div className='capitalize md:w-[70%] flex justify-between py-5'>
-
                     <div className='opacity-50 text-gray-100'><p>123 result</p></div>
                     <div className='inline-flex gap-1  font-bold'>
                         <select className='capitalize cursor-pointer bg-transparent'>
                             <option className='bg-black outline-none'>men shoes</option>
                             <option className='bg-black outline-none'>women shoes</option>
                         </select>
-                        </div>
+                    </div>
                 </div>
                 <div className='md:flex flex-row justify-between'>
                     <div className='md:w-[70%]'>
-                        <div className='cards place-items-center grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-x-2 gap-y-3'>  
+                        <div className='cards place-items-center grid grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-x-2 gap-y-3'>
                             <div className="card  bg-slate-400 w-36">
                                 <div className='p-2'>
                                     <div className='mx-auto'>
@@ -188,7 +187,6 @@ function productlistPageMain() {
                                 </div>
                             </div>
                         </div>
-
                         <div >
                             <div className='pt-11'>
                                 <div className='w-[100%] h-2 bg-slate-900'></div>
@@ -350,7 +348,6 @@ function productlistPageMain() {
                                     </div>
                                 </div>
                                 <div className='text-center py-9'><Link href={"#"}><span className='underline tracking-wider text-blue-300 '>See More</span></Link></div>
-
                             </div>
                         </div>
                     </div>

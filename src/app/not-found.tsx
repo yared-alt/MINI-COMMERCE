@@ -1,24 +1,15 @@
-import Link from 'next/link'
-import React from 'react'
-// import { useRouter } from 'next/navigation';
-// import { NextResponse } from 'next/server';
-// import { headers } from 'next/headers'
-
-async function NotFound() {
-  // const headerList=await headers();
-  // const domain=await headerList.get("host");
-  // const data=await getSiteData(domain);
-  // console.log(data)
-  // NextResponse.redirect('/')
-
+ 
+export default function NotFound() {
   return (
-    <div className='text-center py-[200px]'>
-      <div className='w-[200px] mx-auto'>
-        <p className='text-2xl text-red-400 capitalize'> could not found requested resourse!</p>🔙
-        <Link href="/home" className='underline  text-cyan-200'>back to home</Link>
-      </div>
-    </div>
+    <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
+    <h1 className="text-4xl font-bold mb-4">404 - Page Not Found</h1>
+    <p className="mb-6">The page you are looking for does not exist.</p>
+    <a 
+      href="/home" 
+      className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+    >
+      Go back home
+    </a>
+  </div>
   )
 }
-
-export default NotFound

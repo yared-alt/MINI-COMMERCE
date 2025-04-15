@@ -1,18 +1,16 @@
-'use client'; // Mark this component as a Client Component
-import React, { useEffect } from 'react';
+'use client';
+import { useEffect } from 'react';
 import  Swiper from "swiper"
 import{ Navigation ,Grid}  from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 const SwiperComponent = () => {
   useEffect(() => {
-    // Initialize Swiper on the existing server-rendered content
+  
     const swiper = new Swiper('.swiper-container', {
         modules:[Navigation,Grid],
-      // Default settings
       slidesPerView: 1,
       grid: {
-         // Number of rows in the grid
-        fill: 'row', // Fill rows first
+        fill: 'row', 
       },
       spaceBetween: 20,
       navigation: {
@@ -27,7 +25,7 @@ const SwiperComponent = () => {
         640: {
           slidesPerView: 2,
           grid: {
-            rows: 1, // Switch to 1 row on larger screens
+            rows: 1, 
           },
           spaceBetween: 10,
         },
@@ -42,13 +40,13 @@ const SwiperComponent = () => {
       },
     });
 
-    // Cleanup Swiper when the component unmounts
+
     return () => {
       swiper.destroy();
     };
   }, []);
 
-  return null; // No need to render anything, as the content is already server-rendered
+  return null; 
 };
 
 export default SwiperComponent;

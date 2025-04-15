@@ -1,4 +1,4 @@
-var exec = require('child_process').exec; // Import the exec function
+var exec = require('child_process').exec;
 function shutdown() {
     var command = process.platform === 'win32' ? 'shutdown /s /t 0' : 'sudo shutdown now';
     exec(command, function (error, stdout, stderr) {
@@ -13,5 +13,4 @@ function shutdown() {
         console.log("Output: ".concat(stdout));
     });
 }
-// Call the shutdown function
 shutdown();

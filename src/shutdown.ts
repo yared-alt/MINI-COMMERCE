@@ -1,5 +1,4 @@
-const { exec } = require('child_process'); // Import the exec function
-
+const { exec } = require('child_process'); 
 function shutdown() {
     const command = process.platform === 'win32' ? 'shutdown /s /t 0' : 'sudo shutdown now';
 
@@ -16,5 +15,5 @@ function shutdown() {
     });
 }
 
-// Call the shutdown function
+
 shutdown();

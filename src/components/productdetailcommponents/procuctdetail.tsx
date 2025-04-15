@@ -1,14 +1,19 @@
 "use client";
-import img from "../../../assets/fashion-shoes-sneakers.jpg";
 import Image from "next/image";
 import React from 'react'
 import Sidbar from "../productlistsMAin/sidbar";
-import { useCart } from "$/context/cartContext";
 import Link from "next/link";
 
-function procuctdetail({ info }) {
-  const { addtocart, removeFromCart, individualcart } = useCart();
-  const productcartinfo = individualcart(info?._id);
+
+type Info={
+  FrontImage:string
+  ProductImage:string[]
+  ProductName:string
+  Review:number
+  ProductDescription:string
+}
+
+function procuctdetail({ info }:{info:Info}) {
   return (
     <div className="">
       <div className=" max-w-[1280px] md:flex  gap-9 left-0  md:py-11 mx-auto  ">
@@ -16,7 +21,7 @@ function procuctdetail({ info }) {
           <div className="card px-1 md:px-0 md:flex md:flex-row  md:mx-auto ">
             <div className=" md:border-0 ">
               <div className="back_icon absolute  md:hidden">
-                <p className="text-white">🔙sssssssss</p>
+                <p className="text-white">🔙back</p>
               </div>
               <div className=" md:flex md:flex-col border-y-2 border-l-2 w-[100%] md:w-[380px] h-[100%]">
                 <div
@@ -88,26 +93,25 @@ function procuctdetail({ info }) {
                     {/* flex flex-wrap mt-4 gap-3 justify-between */}
                     <p className="text-lg capitalize">quantity</p>
                     <div className="">
-                      <input className="bg-slate-300 px-6 text-start py-1 text-black border-b-2" type="button" readOnly defaultValue={productcartinfo[0]?.quantity ? productcartinfo[0]?.quantity : "0"} ></input>
+                      <input className="bg-slate-300 px-6 text-start py-1 text-black border-b-2" type="button" readOnly  ></input>
                       <div className="relative -translate-y-8 translate-x-16 font-bold  text-white">
-                        <button onClick={() => removeFromCart(info)} className="hover:text-red-600 px-1  text-2xl ">-</button>
-                        <button onClick={() => addtocart(info)} className="hover:text-red-600 px-1  text-2xl ml-3 ">+</button>
+                        <button
+                         className="hover:text-red-600 px-1  text-2xl ">-</button>
+                        <button 
+                         className="hover:text-red-600 px-1  text-2xl ml-3 ">+</button>
                       </div>
-                      {
-                        productcartinfo[0] && (
-                          <p>total Price : ${productcartinfo[0]?.totalPrice}</p>
-                        )
-                      }
+                          <p>total Price : 0</p>
                     </div>
                   </div>
                 </div>
                 <div className="call_action flex  flex-wrap justify-between  mt-2 pb-6">
                   <div>
                     <p className="text-sm opacity-40 ml-1">price</p>
-                    <p className="text-lg text-gray-200">${info?.ProductPrice}</p>
+                    <p className="text-lg text-gray-200">00</p>
                   </div>
                   <div className="flex">
-                    <input type="submit" onClick={() => addtocart(info)} className="cursor-pointer z-0 px-8 my-auto w-40 py-1 bg-yellow-400 text-black" value={"add to cart"}>
+                    <input type="submit"
+                      className="cursor-pointer z-0 px-8 my-auto w-40 py-1 bg-yellow-400 text-black" value={"add to cart"}>
                     </input>
                     <span className="relative top-[9px] -translate-x-9 ml-2 ">🛒</span>
                   </div>
@@ -124,7 +128,7 @@ function procuctdetail({ info }) {
               <div className="card rounded-sm bg-slate-400 w-36">
                 <div className='p-2'>
                   <div className='mx-auto'>
-                    <Image src="/df.jpg" className='bg-slate-100 w-full' width={100} height={100}></Image>
+                    <Image src="/df.jpg" alt="a"  className='bg-slate-100 w-full' width={100} height={100}></Image>
                   </div>
                   <div className='text-xs'>
                     <p className='uppercase font-bold'>nike ait max 270 react eng</p>
@@ -137,7 +141,7 @@ function procuctdetail({ info }) {
               <div className="card rounded-sm bg-slate-400 w-36">
                 <div className='p-2'>
                   <div className='mx-auto'>
-                    <Image src="/df.jpg" className='bg-slate-100 w-full' width={100} height={100}></Image>
+                    <Image src="/df.jpg" alt="a" className='bg-slate-100 w-full' width={100} height={100}></Image>
                   </div>
                   <div className='text-xs'>
                     <p className='uppercase font-bold'>nike ait max 270 react eng</p>
@@ -150,7 +154,7 @@ function procuctdetail({ info }) {
               <div className="card rounded-sm bg-slate-400 w-36">
                 <div className='p-2'>
                   <div className='mx-auto'>
-                    <Image src="/df.jpg" className='bg-slate-100 w-full' width={100} height={100}></Image>
+                    <Image src="/df.jpg" alt="a" className='bg-slate-100 w-full' width={100} height={100}></Image>
                   </div>
                   <div className='text-xs'>
                     <p className='uppercase font-bold'>nike ait max 270 react eng</p>
@@ -163,7 +167,7 @@ function procuctdetail({ info }) {
               <div className="card rounded-sm bg-slate-400 w-36">
                 <div className='p-2'>
                   <div className='mx-auto'>
-                    <Image src="/df.jpg" className='bg-slate-100 w-full' width={100} height={100}></Image>
+                    <Image src="/df.jpg" alt="a" className='bg-slate-100 w-full' width={100} height={100}></Image>
                   </div>
                   <div className='text-xs'>
                     <p className='uppercase font-bold'>nike ait max 270 react eng</p>
@@ -176,11 +180,11 @@ function procuctdetail({ info }) {
               <div className="card rounded-sm bg-slate-400 w-36">
                 <div className='p-2'>
                   <div className='mx-auto'>
-                    <Image src="/df.jpg" className='bg-slate-100 w-full' width={100} height={100}></Image>
+                    <Image src="/df.jpg" alt="a" className='bg-slate-100 w-full' width={100} height={100}></Image>
                   </div>
                   <div className='text-xs'>
                     <p className='uppercase font-bold'>nike ait max 270 react eng</p>
-                    <p>❤️❤️❤️❤️</p>
+                    <p>❤️❤️❤️❤️</p>0000
                     <p className='mt-3 text-cyan-500 font-extrabold text-sm'>$299.43</p>
                     <p className='text-red-500 text-xs'><span className='opacity-40  line-through mr-3'>$654.77</span> 24% off</p>
                   </div>

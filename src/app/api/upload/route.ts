@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
   try {
     const formdata = await request.formData();
     const FrontImagefile = formdata.get("frontImage") as File | null;
-    const otherImages = formdata.getAll("otherImages") as File[];
+    const otherImages = formdata.getAll("otherImages") as File[] | null;
     const name = formdata.get("name") as String;
     const catagory = formdata.get("catagory") as String;
     const price = formdata.get("price");

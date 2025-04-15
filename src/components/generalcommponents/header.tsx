@@ -2,18 +2,42 @@
 import { ShoppingCart,Menu,X ,Search} from "lucide-react";
 import { useState,useEffect } from "react"
 import Link from "next/link"
-import { useCart } from "$/context/cartContext";
 
 function header() {
-  const {cart,totalquantity}=useCart();
   const [toggle,setToggle]=useState(false)
+  const [prevScroll,setPrevScroll]=useState(0)
+  const [allow,setAllow]=useState(false);
+  const [num,setNum]=useState(0)
+  useEffect(()=>{
+    const handleScroll=()=>{
+      
+      const currentScroll=window.scrollY;
+  
+      const scrollup=currentScroll < prevScroll;
+      if (scrollup) {
+        setAllow(true);
+      }else if(currentScroll >100){
+        setAllow(false)
+      }
+      setPrevScroll(currentScroll)
+    }
+    setNum(window.scrollY)
+    setPrevScroll(window.scrollY)
+
+    window.addEventListener("scroll",handleScroll)
+
+    return()=>{
+      window.removeEventListener("scroll",handleScroll);
+    }
+  },[prevScroll])
 
   return (
     <div >
       {/* ...........................header................................. */}
       <div className="header">
-        <div className="max-w-[1580px] mx-auto">
-          <div className="flex justify-between py-4">
+        <div className={`max-w-[1580px] w-[100%]   transition-transform   duration-700 ease-in-outz-50 bg-black/50 backdrop-blur-md mx-auto `}>
+        {/* ${allow ? `top-[${num}px] translate-y-[100%]  `:"-translate-y-[50%]"} */}
+          <div className="flex justify-between">
 
             <div className={`fixed top-0 my-auto } text-white md:block md:relative md:bg-transparent h-[100%] w-[100%] md:w-auto  md:h-auto`}>
               <div className="text-center  hidden md:block font-sans font-semibold py-8 md:py-0 ">
@@ -60,7 +84,7 @@ function header() {
                   <Link href="/checkout" className="">
                   <div>
                   <ShoppingCart className="relative -left-4 top-4"/>
-                  <span className="relative cursor-pointer  -right-1 -top-4 text-black text-sm bg-emerald-400 rounded-full h-[50%] overflow-hidden px-[0.32rem] text-center">{cart.length}</span>
+                  <span className="relative cursor-pointer  -right-1 -top-4 text-black text-sm bg-emerald-400 rounded-full h-[50%] overflow-hidden px-[0.32rem] text-center">2</span>
                   </div>
                   </Link>
                 </div>
@@ -71,7 +95,7 @@ function header() {
                   <Link href="/checkout">
                   <div>
                     <ShoppingCart className="relative top-3 -left-5"/>
-                  <span className="relative ursor-pointer  -translate-x-2 -top-6 text-black text-sm bg-emerald-400 rounded-full h-[50%] overflow-hidden px-[0.4rem] text-center">{cart.length}</span>
+                  <span className="relative ursor-pointer  -translate-x-2 -top-6 text-black text-sm bg-emerald-400 rounded-full h-[50%] overflow-hidden px-[0.4rem] text-center">2</span>
                   </div>
                   </Link>
 

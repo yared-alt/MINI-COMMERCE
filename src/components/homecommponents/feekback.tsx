@@ -1,6 +1,6 @@
 import React from 'react'
 
-function feekback({ maxw }) {
+function feekback({ maxw }:{maxw:string}) {
   return (
     <div className="customer bg-zinc-600 text-white py-28">
       <div className={`${maxw}`}>

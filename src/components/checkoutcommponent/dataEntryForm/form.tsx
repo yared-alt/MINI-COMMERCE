@@ -69,7 +69,7 @@ function form() {
                 <div className=' py-2'>
                     <input
                         type="text"
-                        className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                        className="w-full mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                         placeholder="Enter your name"
                         required
                         name='name'
@@ -81,7 +81,7 @@ function form() {
                     <div>
                         <input
                             type="text"
-                            className="w-full mt-1 p-3 border  rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                            className="w-full mt-1 p-2 md:p-3 border  rounded-lg focus:ring-2 focus:ring-primary outline-none"
                             placeholder="Enter your email"
                             required
                             name="email"
@@ -92,7 +92,7 @@ function form() {
                     <div>
                         <input
                             type="text"
-                            className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                            className="w-full mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                             placeholder="Enter your email"
                             required
                             name="phone"
@@ -113,7 +113,7 @@ function form() {
                     <div className=' max-w-[100%]'>
                         <input
                             type="text"
-                            className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                            className="w-full mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                             placeholder="Enter your address"
                             required
                             name='address'
@@ -124,7 +124,7 @@ function form() {
                     <div className='min-w-32 w-[100%]'>
                         <input
                             type="text"
-                            className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                            className="w-full mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                             placeholder="Enter your Posta address"
                             required
                             name='postalcode'
@@ -137,7 +137,7 @@ function form() {
                     <div className='min-w-32  w-[40%]'>
                         <input
                             type="text"
-                            className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                            className="w-full mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                             placeholder="current city name"
                             required
                             name='city'
@@ -148,7 +148,7 @@ function form() {
                     <div className='min-w-32 w-[50%]'>
                         <input
                             type="text"
-                            className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                            className="w-full mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                             placeholder="current country name"
                             required
                             name='country'
@@ -166,7 +166,7 @@ function form() {
                 <div className=' py-2'>
                     <input
                         type="text"
-                        className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                        className="w-full mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                         placeholder="voucher number"
                         required
                         name='voucher'
@@ -203,13 +203,13 @@ function form() {
                                 onChange={(e) => handleOnchange(e)}
                                 checked={customerdata.onlinePay}
                             />
-                            <p className='my-auto capitalize font-robotoSlab font-semibold'>cridit or debit</p>
+                            <p className='my-auto capitalize font-robotoSlab font-semibold'>use cridit or debit card</p>
                         </div>
                     </div>
                     <div className='py-2'>
                         <input
                             type="text"
-                            className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                            className="w-full mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                             placeholder="card holder name"
                             required
                             name='cardHolderName'
@@ -220,7 +220,7 @@ function form() {
                     <div className='py-2'>
                         <input
                             type="text"
-                            className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                            className="w-full mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                             placeholder="card number "
                             required
                             name='cardNumber'
@@ -235,7 +235,7 @@ function form() {
                                 <p className='my-auto capitalize font-robotoSlab font-semibold pl-1'>exp-date</p>
                                 <input
                                     type="date"
-                                    className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                                    className="w-full mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                                     required
                                     name='expDate'
                                     onChange={(e) => handleOnchange(e)}
@@ -248,7 +248,7 @@ function form() {
                                 <p className='text-  font-robotoSlab font-semibold tracking-widest pl-1 underline'>cvc</p>
                                 <input
                                     type="text"
-                                    className=" mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
+                                    className=" mt-1 p-2 md:p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                                     required
                                     name='cvc'
                                     onChange={(e) => handleOnchange(e)}

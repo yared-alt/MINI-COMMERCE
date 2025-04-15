@@ -14,8 +14,9 @@ export async function POST() {
           'Authorization': `Bearer ${process.env.DESCRIPTION_TOKEN}`,
         },
         body: JSON.stringify({
-          model: 'gpt-4o',
-          prompt: message,
+          model: "gpt-4-1106-preivew",
+          
+          prompt:message,
           max_tokens: 100,
         }),
       });
@@ -24,23 +25,6 @@ export async function POST() {
 
       console.log("datss",data)
       NextResponse.json({message:data})
-    
-    // const fallbackResponse = await fetch('https://api.openai.com/v1/completions', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Authorization': `Bearer ${process.env.DESCRIPTION_TOKEN}`,
-    //     },
-    //     body: JSON.stringify({
-    //       model: 'gpt-3.5-turbo', // Fallback to GPT-3.5
-    //       prompt: message,
-    //       max_tokens: 100,
-    //     }),
-    //   });
-  
-    //   const fallbackData = await fallbackResponse.json();
-    //   console.log("fallbakere",fallbackData)
-    //   NextResponse.json({message:fallbackData})
 
 } catch (error) {
       console.error('Error calling OpenAI API:', error);

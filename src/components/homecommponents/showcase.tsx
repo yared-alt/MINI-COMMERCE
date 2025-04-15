@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-function showcase({maxw}) {
+function showcase({maxw}:{maxw:string}) {
   return (
     <div className='bg-gradient-to-l from-zinc-800  via-zinc-400 via-70% to-slate-300:'>
             <div className={`${maxw} show_case  py-7 pb-24 px-5 md:flex md:justify-end`}>
@@ -18,9 +18,7 @@ function showcase({maxw}) {
             bg-clip-text  bg-gradient-to-tr from-yellow-500 from-50% brightness-200 via-red-700 to-yellow-400 text-transparent
             
            "> view collection</button>
-
           </div>
-
         </div>
       </div>
     </div>

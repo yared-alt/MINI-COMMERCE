@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function footer() {
@@ -19,10 +20,10 @@ function footer() {
                                 <div className="description  font-roboto text-lg md:text-lg py-1">
 
                                     <ul className="tracking-wider text-[.9rem] capitalize ">
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">home</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">shop</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">about us</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">contact</li>
+                                        <Link href={"/home"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">home</li></Link>
+                                        <Link href={"/products"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">shop</li></Link>
+                                        <Link href={"/aboutus"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">about us</li></Link>
+                                        <Link href={"/contact"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">contact</li></Link>
                                     </ul>
                                 </div>
                                 <div className="title text-red-900 capitalize font-robotoSlab text-lg italic font-bold">
@@ -31,10 +32,10 @@ function footer() {
                                 <div className="description  font-roboto text-lg md:text-lg py-1">
 
                                     <ul className="tracking-wider text-[.9rem]  capitalize ">
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">sport</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">bussiness</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">comfort</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">lesiure</li>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">sport</li></Link>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">bussiness</li></Link>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">comfort</li></Link>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">lesiure</li></Link>
                                     </ul>
                                 </div>
                             </div>
@@ -45,10 +46,10 @@ function footer() {
                                 </div>
                                 <div className="description  font-roboto text-lg md:text-lg py-1">
                                     <ul className="tracking-wider text-[.9rem]  capitalize ">
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">contact support</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">FAQ</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">feadback</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">return</li>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">contact support</li></Link>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">FAQ</li></Link>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">feadback</li></Link>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">return</li></Link>
                                     </ul>
                                 </div>
                                 <div className="title text-red-900 capitalize font-robotoSlab text-lg italic font-bold">
@@ -57,9 +58,9 @@ function footer() {
                                 <div className="description  font-roboto text-lg md:text-lg py-1">
                                     <ul className="tracking-wider text-[.9rem] capitalize">
 
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">facebook</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">X</li>
-                                        <li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">instagram</li>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">facebook</li></Link>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">X</li></Link>
+                                        <Link href={"/"}><li className="hover:text-black  hover:underline -tracking-wider  mt-2 cursor-pointer hover:transition-all duration-500">instagram</li></Link>
                                     </ul>
                                 </div>
                             </div>

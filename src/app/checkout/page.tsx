@@ -35,7 +35,7 @@ function page() {
                                             <div className='text-xs  my-auto w-28'>
                                                 <p className='font-bold'>{pro.title}</p>
                                                 <p className='mt-2  hover:underline hover:text-red-600'>
-                                                    <span onClick={() => removesinglePro(pro.id)} className='opacity-65 hover:cursor-pointer '>✖️ remove</span>
+                                            <span onClick={() => removesinglePro(pro.id)} className='opacity-65 hover:cursor-pointer '>✖️ remove</span>
                                                 </p>
                                             </div>
                                             <div className='w-16 border-2 my-auto mr-1 text-end'>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-function shocase2({maxw}) {
+function shocase2({maxw}:{maxw:string}) {
   return (
     <div>
     <div className='bg-gradient-to-r from-zinc-800  via-zinc-400 via-70% to-slate-300 '>

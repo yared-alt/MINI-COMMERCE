@@ -1,22 +1,26 @@
-import product from "$/data/product.json"
-import Products from "$/components/homecommponents/products";
 import Hero from "$/components/homecommponents/hero"
+import Service from "$/components/homecommponents/service"
 import Showcase from "$/components/homecommponents/showcase"
-import Recommendetion from "$/components/homecommponents/recommendetion";
-import Shocase2 from "$/components/homecommponents/shocase2";
+import Shocase2 from "$/components/homecommponents/shocase2"
+import Products from "$/components/homecommponents/products"
+import Feekback from "$/components/homecommponents/feekback"
 import Newproducts from "$/components/homecommponents/newproducts";
-import Feekback from "$/components/homecommponents/feekback";
-import Service from "$/components/homecommponents/service";
-import getProducts from "./getproducts";
+import Recommendetion from "$/components/homecommponents/recommendetion";
+
+import {
+  getPopularProducts,
+  getNewProducts,
+} from "$/methods/getpopularProducts"
 
 
 export default async function page() {
-  const review=4.5;
-  const Isnew=true;
-  // const popular=await getProducts({Review:4.5});
-  // const newProducts=await getProducts({IsNew:Isnew});
-  // console.log(popular);
-  const max = "max-w-[1580px] mx-auto";
+  const popular = await getPopularProducts();
+  const newProducts = ["dd", "ff"];
+
+  const max = "max-w-[1580px] mx-auto  px-1  md:px-4 lg:px-5 xl:px-8 ";
+
+
+
   return (
     <div className="">
       <Hero maxw={max} />
@@ -25,18 +29,19 @@ export default async function page() {
           <div className="capitalize tracking-tighter py-6 text-center text-4xl italic font-robotoSlab font-extrabold">
             <p>most popular</p>
           </div>
-          {/* ..............................products............................. */}
-          <Products maxw={max} />
+          <Products products={popular} maxw={max} />
         </div>
       </div>
 
       <Showcase maxw={max} />
 
-      <Recommendetion maxw={max}/>
+      <Recommendetion maxw={max} />
 
       <Shocase2 maxw={max} />
 
-      <Newproducts maxw={max}  />
+      {/* ..............................new products............................. */}
+
+      <Newproducts newProduct={newProducts} maxw={max} />
 
       <Feekback maxw={max} />
 

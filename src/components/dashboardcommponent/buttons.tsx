@@ -1,8 +1,8 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 // import { Eye,Trash2,Pencil } from 'lucide-react';
 
- function buttons({ type }) {
+ function buttons({ type }:{type:string}) {
     var I;
     switch (type) {
         case "Eye":
@@ -27,20 +27,6 @@ import React, { useState, useEffect } from 'react'
             I =  import("lucide-react").then((module) => module.ChevronsUpDown)
             break;
 
-
-        // case "ArrowDownToLine":
-        //     I = await import("lucide-react").then((module) => module.ArrowDownToLine)
-        //     break;
-
-
-        // case "ArrowDownToLine":
-        //     I = await import("lucide-react").then((module) => module.ArrowDownToLine)
-        //     break;
-
-
-        // case "ArrowDownToLine":
-        //     I = await import("lucide-react").then((module) => module.ArrowDownToLine)
-            break;
         default:
             break;
     }

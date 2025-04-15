@@ -14,15 +14,14 @@ const data = JSON.parse(fs.readFileSync(dataPath, "utf-8"));
 console.log("MongoDB URI:", process.env.MONGODB_URI);
 
 async function migrate() {
-  const uri = process.env.MONGODB_URI; // Fallback value
+  const uri = process.env.MONGODB_URI;
   const client = new MongoClient(uri);
 
   try {
     await client.connect();
-    const database = client.db("register"); // Replace with your database name
+    const database = client.db("register");
     const collection = database.collection("allproducts");
 
-    // Insert the data into the collection
     const result = await collection.insertMany(data);
     console.log(result)
     console.log(`${result.insertedCount} documents were inserted`);

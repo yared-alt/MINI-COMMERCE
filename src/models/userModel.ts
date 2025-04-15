@@ -12,6 +12,5 @@ const UserSchema=new mongoose.Schema({
     VarifyTokenExp:{type:Date}
 })
 const User=mongoose.models.user || mongoose.model("user",UserSchema,"users");
-// const user=mongoose.model("user",UserSchema);
 
 export default User;

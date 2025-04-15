@@ -9,7 +9,15 @@ import 'swiper/css/navigation'
 import Image from 'next/image';
 
 
-function newproducts({ maxw }) {
+type NewProduct={
+  FrontImage:string
+  ProductImage:string[]
+  ProductName:string
+  Review:number
+  ProductDescription:string
+}
+
+function newproducts({ newProduct,maxw }:{newProduct:NewProduct,maxw:string}) {
   // console.log(maxw)
   return (
     <div className=' bg-gray-200 text-black pb-20'>

@@ -19,7 +19,7 @@ async function page({ searchParams }: { searchParams: { page: string } }) {
     const {totalpages,products}= await fetcher(page, limit);
     const catagory = "all";
     return (
-        <div className='text-black h-[100vh-2rem] bg-gray-200 font-normal'>
+        <div className='text-black h-[100vh-4rem] bg-gray-200 font-normal'>
             <div className='max-w-[1200px] mx-auto'>
                 <div className='text-end pt-2'>
                     <p className='capitalize text-blue-800 font-bold'>dashboard</p>
@@ -133,6 +133,9 @@ async function page({ searchParams }: { searchParams: { page: string } }) {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="w-[100%] text-center bg-cyan-950 flex justify-center align-middle ">
+                <p className="font-robotoSlab capitalize py-5 tracking-wider text-yellow-200 my-auto ">admin dashbard</p>
             </div>
         </div>
     )

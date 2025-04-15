@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-function recommendetion({maxw}) {
+function recommendetion({maxw}:{maxw:string}) {
   return (
     <div className=" bg-white text-black pt-40  pb-96 px-2">
           <div className={` ${maxw} `}>

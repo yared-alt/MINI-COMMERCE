@@ -1,6 +1,6 @@
 import React from 'react'
 
-function service({maxw}) {
+function service({maxw}:{maxw:string}) {
   return (
     <div className=' bg-slate-50 text-black'>
            <div className={`${maxw} service py-24`}>

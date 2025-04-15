@@ -3,9 +3,26 @@ import { BackpackIcon, ChevronLeft, Link2 } from "lucide-react";
 import { model } from "mongoose";
 import Link from "next/link";
 import React, { useState } from "react";
-import {generateResponse} from "./fetcher";
+import { generateResponse } from "./fetcher";
+import { string } from "zod";
 
-async function upload(data) {
+
+type Data = {
+    name: string
+    price: number
+    new: boolean
+    InStock: boolean
+    quantity: number
+    sizes: string[]
+    colors: string[]
+    popular: boolean
+    catagory: string
+    description: string
+    frontImage: string
+    otherImages: string[]
+}
+
+async function upload({ formdata }: { formdata: Data }) {
     try {
         // setUploading(true);
         const response = await fetch("/api/upload", {
@@ -29,19 +46,35 @@ async function upload(data) {
     // }
 }
 
-const blankUploadForm = ({ product, bg }) => {
-    const [name, setName] = useState(product ? product.name : "");
-    const [price, setPrice] = useState(product ? product.price : "");
-    const [isNew, setIsNew] = useState(product ? product.isNew : false);
-    const [Instock, setInstock] = useState(product ? product.inStock : true);
-    const [quantity, setquantity] = useState(product ? product.quantity : 1);
-    const [sizes, setSizes] = useState<string[]>(product ? product.size : []);
-    const [colors, setColors] = useState<String[]>(product ? product.colors : []);
-    const [IsPopular, setIsPopular] = useState(product ? product.isPopular : true);
-    const [catagory, setCatagory] = useState(product ? product.catagory : "sport");
-    const [description, setDescription] = useState(product ? product.description : "");
-    const [frontImage, setFrontImage] = useState<File | null>(product ? product.frontImage : null);
-    const [otherImages, setOtherImages] = useState<File[]>(product ? product.otherImages : null);
+type Product = {
+    name: string
+    price: number
+    isNew: boolean
+    inStock: boolean
+    quantity: number
+    size: string[]
+    colors: string[]
+    isPopular: boolean
+    catagory: string
+    description: string
+    frontImage: string
+    otherImages: string[]
+}
+
+
+const blankUploadForm = ({ bg }: {  bg: string | null }) => {
+    const [name, setName] = useState("");
+    const [price, setPrice] = useState(0);
+    const [isNew, setIsNew] = useState( false);
+    const [Instock, setInstock] = useState(true);
+    const [quantity, setquantity] = useState<number>(1);
+    const [sizes, setSizes] = useState<string[]>([]);
+    const [colors, setColors] = useState<String[]>([]);
+    const [IsPopular, setIsPopular] = useState(true);
+    const [catagory, setCatagory] = useState("sport");
+    const [description, setDescription] = useState("");
+    const [frontImage, setFrontImage] = useState<File | null>(null);
+    const [otherImages, setOtherImages] = useState<File[] | null>(null);
     const [generating, setGenerating] = useState<boolean>(true);
     const [uploading, setUploading] = useState<boolean>(false)
 
@@ -62,10 +95,10 @@ const blankUploadForm = ({ product, bg }) => {
             formData.append("description", description);
             formData.append("new", isNew.toString());
             formData.append("Popular", IsPopular.toString());
-            colors.forEach((color) => formData.append("colors", color));
+            colors.forEach((c) => formData.append("colors", c as string));
             sizes.forEach((size) => formData.append("sizes", size));
             if (frontImage) formData.append("frontImage", frontImage);
-            otherImages.forEach((file) => formData.append("otherImages", file));
+            otherImages?.forEach((file) => formData.append("otherImages", file));
             return formData;
 
         }
@@ -82,23 +115,24 @@ const blankUploadForm = ({ product, bg }) => {
         formData.append("description", description);
         formData.append("new", isNew.toString());
         formData.append("Popular", IsPopular.toString());
-        colors.forEach((color) => formData.append("colors", color));
+        colors.forEach((color) => formData.append("colors", color as string));
         sizes.forEach((size) => formData.append("sizes", size));
         if (frontImage) formData.append("frontImage", frontImage);
-        otherImages.forEach((file) => formData.append("otherImages", file));
+        otherImages?.forEach((file) => formData.append("otherImages", file));
         return formData;
     }
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const data = validate();
-        if (!data) return;
-        await upload(data);
+        const formdata = validate();
+        if (!formdata) return;
+        await upload(formdata);
     };
 
-    const generateAutoSescription = async () => {
-            // const data = validate(true);
-            // console.log(data)
-        const d=await generateResponse(" hy how are you nice to meet you");
+    const generateAutoSescription = async (): Promise<void> => {
+        // const data = validate(true);
+        // console.log(data)
+        const st=" hy how are you nice to meet you";
+        const d = await generateResponse(st);
         console.log(d)
 
     }
@@ -165,7 +199,7 @@ const blankUploadForm = ({ product, bg }) => {
                                 className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                                 placeholder="Enter your name"
                                 required
-                                onChange={(e) => setquantity(e.target.value)}
+                                onChange={(e) => setquantity(Number(e.target.value))}
                                 value={quantity}
                             />
                         </div>
@@ -190,7 +224,7 @@ const blankUploadForm = ({ product, bg }) => {
                                 className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none"
                                 type="number"
                                 value={price}
-                                onChange={(e) => setPrice(e.target.value)}
+                                onChange={(e) => setPrice(Number(e.target.value))}
                             />
                         </div>
 

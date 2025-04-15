@@ -3,24 +3,7 @@ import { BackpackIcon, ChevronLeft, Link2 } from "lucide-react";
 import { model } from "mongoose";
 import Link from "next/link";
 import React, { useState } from "react";
-import { generateResponse } from "./fetcher";
 import { string } from "zod";
-
-
-type Data = {
-    name: string
-    price: number
-    new: boolean
-    InStock: boolean
-    quantity: number
-    sizes: string[]
-    colors: string[]
-    popular: boolean
-    catagory: string
-    description: string
-    frontImage: string
-    otherImages: string[]
-}
 
 async function upload( formdata : FormData ) {
     try {
@@ -102,7 +85,7 @@ const blankUploadForm = ({ bg }: {  bg: string | null }) => {
             return formData;
 
         }
-        if (!frontImage || !name || !catagory || !price || !colors || !sizes) {
+        if (!frontImage || !description || !name || !catagory || !price || !colors || !sizes) {
             console.log("incomplate frontend data")
             console.log("frontImage",frontImage,"name",name,"catagory",catagory,"price",price,"colors",colors,"sizes",sizes)
             return false;
@@ -131,17 +114,26 @@ const blankUploadForm = ({ bg }: {  bg: string | null }) => {
         } else{
             console.log(formdata);
         }
-            
         await upload(formdata);
     };
 
     const generateAutoSescription = async (): Promise<void> => {
-        // const data = validate(true);
-        // console.log(data)
+        const auto=true;
+        const data = validate(auto);
+        console.log(data)
         const st=" hy how are you nice to meet you";
-        const d = await generateResponse(st);
-        console.log(d)
 
+        try {
+            const response=await fetch("/api/generatedescription",{method:"POST"});
+            if(!response.ok){
+                console.log(response)
+            }else{
+                const data=await response.json();
+                console.log(data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
     return (
         <div className=" bg-fuchsia-600">
@@ -157,7 +149,6 @@ const blankUploadForm = ({ bg }: {  bg: string | null }) => {
                             rows={4}
                             className="w-full h-[60%] md:h-[70%] mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-primary outline-none resize-none"
                             placeholder="write description..."
-                            required
                             onChange={(e) => setDescription(e.target.value)}
                             value={description}
                         ></textarea>

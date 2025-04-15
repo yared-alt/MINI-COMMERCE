@@ -1,33 +1,12 @@
-import {NextResponse } from "next/server";
+import { NextResponse } from "next/server";
+import main from "$/lib/openai";
 
 export async function POST() {
-
-    const message=[
-        {role:`user",content:"please write pure precise,appeling and call to action description for this data and it will be posted or taged with product on ecommerce website the data is:addidass, color,red blue 44%discount new`}
-    ]
-  
-    try {
-      const response = await fetch('https://api.openai.com/v1/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.DESCRIPTION_TOKEN}`,
-        },
-        body: JSON.stringify({
-          model: "gpt-4-1106-preivew",
-          
-          prompt:message,
-          max_tokens: 100,
-        }),
-      });
-  
-      const data = await response.json();
-
-      console.log("datss",data)
-      NextResponse.json({message:data})
-
-} catch (error) {
-      console.error('Error calling OpenAI API:', error);
-    }
-    
+  try {
+    const data=await main();
+    return NextResponse.json({ message: data }, { status: 200 })
+  } catch (error) {
+    console.log("errorrr",error)
+   return NextResponse.json({error:error})
+  }
   }
